@@ -1,6 +1,7 @@
 from django.urls import path 
-from . views import ItemView
+from . views import ItemView, item_view
 
 urlpatterns = [
-    path('items/', ItemView.as_view(), name='item-url')
+    path('items-fbv/', ItemView.as_view(), name='item-url'),
+    path('items-cbv/', item_view.as_view(), name='item-url')
 ]
