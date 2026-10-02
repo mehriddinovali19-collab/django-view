@@ -1,17 +1,24 @@
-from django.views import View
-from django.http import HttpResponse, HttpRequest
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.request import Request
 
 
-class ItemView(View):
-    def get(self, request: HttpRequest) -> HttpResponse:
-        return HttpResponse("get method called")
 
-    def post(self, request: HttpRequest) -> HttpResponse:
-        return HttpResponse("post method called")
+class ItemView(APIView):
+    def get(self, request: Request) -> Response:
+        search  = request.query_params.get('search')
+        limit  = request.query_params.get('limit')
+        print(search, limit)
+        return Response("get method called")
 
-    def delete(self, request: HttpRequest) -> HttpResponse:
-        return HttpResponse("delete method called")
+    def post(self, request: Request) -> Response:
+        data = request.data
+        print(data)
+        return Response("post method called")
 
-    def put(self, request: HttpRequest) -> HttpResponse:
-        return HttpResponse("put method called")
+    def delete(self, request: Request) -> Response:
+        return Response("delete method called")
+
+    def put(self, request: Request) -> Response:
+        return Response("put method called")
 
