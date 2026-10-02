@@ -1,2 +1,2 @@
 from .fvb import item_view
-from .cvb import ItemView
+from .cvb import ItemView, UserCreateView
